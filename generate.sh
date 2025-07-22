@@ -44,7 +44,8 @@ mkcert -cert-file "$OUTPUT_DIR/$DOMAIN.pem" \
        "$DOMAIN" "*.$DOMAIN" $IPS
 
 cat "$OUTPUT_DIR/$DOMAIN.pem" "$MKCERT_ROOT/rootCA.pem" > "$OUTPUT_DIR/$DOMAIN.crt"
-
+cat "$OUTPUT_DIR/$DOMAIN.pem" "$OUTPUT_DIR/$DOMAIN.key" > "$OUTPUT_DIR/$DOMAIN-combined.pem"
+mv "$OUTPUT_DIR/$DOMAIN-combined.pem" "$OUTPUT_DIR/$DOMAIN.pem"
 cp "$MKCERT_ROOT/rootCA.pem" "$OUTPUT_DIR/rootCA.crt"
 
 # Явно оставляем chmod 777, т.к. используется Ansible
