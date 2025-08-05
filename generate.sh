@@ -43,12 +43,19 @@ mkcert -cert-file "$OUTPUT_DIR/$DOMAIN.pem" \
        -key-file "$OUTPUT_DIR/$DOMAIN.key" \
        "$DOMAIN" "*.$DOMAIN" $IPS
 
-cat "$OUTPUT_DIR/$DOMAIN.pem" "$MKCERT_ROOT/rootCA.pem" > "$OUTPUT_DIR/$DOMAIN.crt"
-cat "$OUTPUT_DIR/$DOMAIN.pem" "$OUTPUT_DIR/$DOMAIN.key" > "$OUTPUT_DIR/$DOMAIN-combined.pem"
+echo "DEBUG: Listing cert files:"
+ls -l "$OUTPUT_DIR"
+
+echo "DEBUG: Contents of cert and key files:"
+head -10 "$OUTPUT_DIR/$DOMAIN.pem"
+head -10 "$OUTPUT_DIR/$DOMAIN.key"
+
+cat "$OUTPUT_DIR/$DOMAIN.key" "$OUTPUT_DIR/$DOMAIN.pem" > "$OUTPUT_DIR/$DOMAIN-combined.pem"
 mv "$OUTPUT_DIR/$DOMAIN-combined.pem" "$OUTPUT_DIR/$DOMAIN.pem"
+
+cat "$OUTPUT_DIR/$DOMAIN.pem" "$MKCERT_ROOT/rootCA.pem" > "$OUTPUT_DIR/$DOMAIN.crt"
 cp "$MKCERT_ROOT/rootCA.pem" "$OUTPUT_DIR/rootCA.crt"
 
-# Явно оставляем chmod 777, т.к. используется Ansible
 chmod 777 "$OUTPUT_DIR/$DOMAIN.pem" \
           "$OUTPUT_DIR/$DOMAIN.key" \
           "$OUTPUT_DIR/$DOMAIN.crt" \
