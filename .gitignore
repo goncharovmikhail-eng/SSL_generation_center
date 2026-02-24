@@ -1,2 +1,5 @@
 certs/*
 test
+wildcard/letsencrypt/
+*.pem
+cerbot_docker/letsencrypt/
