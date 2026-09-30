@@ -1,25 +1,25 @@
-2026-09-30 08:37:31,142:DEBUG:certbot._internal.main:certbot version: 5.6.0
-2026-09-30 08:37:31,142:DEBUG:certbot._internal.main:Location of certbot entry point: /usr/local/bin/certbot
-2026-09-30 08:37:31,142:DEBUG:certbot._internal.main:Arguments: ['--standalone', '--preferred-challenges', 'http', '-d', 'express.crafttech.ru', '--email', 'm.goncharov@crafttech.ru', '--agree-tos', '--non-interactive']
-2026-09-30 08:37:31,142:DEBUG:certbot._internal.main:Discovered plugins: PluginsRegistry(PluginEntryPoint#manual,PluginEntryPoint#null,PluginEntryPoint#standalone,PluginEntryPoint#webroot)
-2026-09-30 08:37:31,153:DEBUG:certbot._internal.log:Root logging level set at 30
-2026-09-30 08:37:31,154:DEBUG:certbot._internal.plugins.selection:Requested authenticator standalone and installer None
-2026-09-30 08:37:31,154:DEBUG:certbot._internal.plugins.selection:Single candidate plugin: * standalone
+2026-09-30 14:48:16,330:DEBUG:certbot._internal.main:certbot version: 5.6.0
+2026-09-30 14:48:16,330:DEBUG:certbot._internal.main:Location of certbot entry point: /usr/local/bin/certbot
+2026-09-30 14:48:16,330:DEBUG:certbot._internal.main:Arguments: ['--standalone', '--preferred-challenges', 'http', '-d', 'express.crafttech.ru', '--email', 'm.goncharov@crafttech.ru', '--agree-tos', '--non-interactive']
+2026-09-30 14:48:16,330:DEBUG:certbot._internal.main:Discovered plugins: PluginsRegistry(PluginEntryPoint#manual,PluginEntryPoint#null,PluginEntryPoint#standalone,PluginEntryPoint#webroot)
+2026-09-30 14:48:16,340:DEBUG:certbot._internal.log:Root logging level set at 30
+2026-09-30 14:48:16,341:DEBUG:certbot._internal.plugins.selection:Requested authenticator standalone and installer None
+2026-09-30 14:48:16,341:DEBUG:certbot._internal.plugins.selection:Single candidate plugin: * standalone
 Description: Runs an HTTP server locally which serves the necessary validation files under the /.well-known/acme-challenge/ request path. Suitable if there is no HTTP server already running. HTTP challenge only (wildcards not supported).
 Interfaces: Authenticator, Plugin
 Entry point: EntryPoint(name='standalone', value='certbot._internal.plugins.standalone:Authenticator', group='certbot.plugins')
-Initialized: <certbot._internal.plugins.standalone.Authenticator object at 0x7f2c4faab770>
+Initialized: <certbot._internal.plugins.standalone.Authenticator object at 0x7f148b507770>
 Prep: True
-2026-09-30 08:37:31,154:DEBUG:certbot._internal.plugins.selection:Selected authenticator <certbot._internal.plugins.standalone.Authenticator object at 0x7f2c4faab770> and installer None
-2026-09-30 08:37:31,154:INFO:certbot._internal.plugins.selection:Plugins selected: Authenticator standalone, Installer None
-2026-09-30 08:37:31,217:DEBUG:certbot._internal.main:Picked account: <Account(RegistrationResource(body=Registration(key=None, contact=(), agreement=None, status=None, terms_of_service_agreed=None, only_return_existing=None, external_account_binding=None), uri='https://acme-v02.api.letsencrypt.org/acme/acct/3079857496', new_authzr_uri=None, terms_of_service=None), 32dd6ab300065d2341f3dd0c83d82967, Meta(creation_dt=datetime.datetime(2026, 2, 19, 13, 46, 54, tzinfo=datetime.timezone.utc), creation_host='b37f6e72c8b6', register_to_eff=None))>
-2026-09-30 08:37:31,217:DEBUG:acme.client:Sending GET request to https://acme-v02.api.letsencrypt.org/directory.
-2026-09-30 08:37:31,219:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): acme-v02.api.letsencrypt.org:443
-2026-09-30 08:37:31,891:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "GET /directory HTTP/1.1" 200 961
-2026-09-30 08:37:31,892:DEBUG:acme.client:Received response:
+2026-09-30 14:48:16,341:DEBUG:certbot._internal.plugins.selection:Selected authenticator <certbot._internal.plugins.standalone.Authenticator object at 0x7f148b507770> and installer None
+2026-09-30 14:48:16,341:INFO:certbot._internal.plugins.selection:Plugins selected: Authenticator standalone, Installer None
+2026-09-30 14:48:16,395:DEBUG:certbot._internal.main:Picked account: <Account(RegistrationResource(body=Registration(key=None, contact=(), agreement=None, status=None, terms_of_service_agreed=None, only_return_existing=None, external_account_binding=None), uri='https://acme-v02.api.letsencrypt.org/acme/acct/3079857496', new_authzr_uri=None, terms_of_service=None), 32dd6ab300065d2341f3dd0c83d82967, Meta(creation_dt=datetime.datetime(2026, 2, 19, 13, 46, 54, tzinfo=datetime.timezone.utc), creation_host='b37f6e72c8b6', register_to_eff=None))>
+2026-09-30 14:48:16,396:DEBUG:acme.client:Sending GET request to https://acme-v02.api.letsencrypt.org/directory.
+2026-09-30 14:48:16,397:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): acme-v02.api.letsencrypt.org:443
+2026-09-30 14:48:16,980:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "GET /directory HTTP/1.1" 200 961
+2026-09-30 14:48:16,982:DEBUG:acme.client:Received response:
 HTTP 200
 Server: nginx
-Date: Wed, 30 Sep 2026 08:37:31 GMT
+Date: Wed, 30 Sep 2026 14:48:16 GMT
 Content-Type: application/json
 Content-Length: 961
 Connection: keep-alive
@@ -28,7 +28,7 @@ X-Frame-Options: DENY
 Strict-Transport-Security: max-age=604800
 
 {
-  "LUxfhngK1P0": "https://community.letsencrypt.org/t/adding-random-entries-to-the-directory/33417",
+  "JSGjm3293xg": "https://community.letsencrypt.org/t/adding-random-entries-to-the-directory/33417",
   "keyChange": "https://acme-v02.api.letsencrypt.org/acme/key-change",
   "meta": {
     "caaIdentities": [
@@ -48,256 +48,8 @@ Strict-Transport-Security: max-age=604800
   "renewalInfo": "https://acme-v02.api.letsencrypt.org/acme/renewal-info",
   "revokeCert": "https://acme-v02.api.letsencrypt.org/acme/revoke-cert"
 }
-2026-09-30 08:37:31,895:DEBUG:certbot._internal.display.obj:Notifying user: Requesting a certificate for express.crafttech.ru
-2026-09-30 08:37:31,897:DEBUG:acme.client:Requesting fresh nonce
-2026-09-30 08:37:31,897:DEBUG:acme.client:Sending HEAD request to https://acme-v02.api.letsencrypt.org/acme/new-nonce.
-2026-09-30 08:37:32,083:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "HEAD /acme/new-nonce HTTP/1.1" 200 0
-2026-09-30 08:37:32,084:DEBUG:acme.client:Received response:
-HTTP 200
-Server: nginx
-Date: Wed, 30 Sep 2026 08:37:31 GMT
-Connection: keep-alive
-Cache-Control: public, max-age=0, no-cache
-Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
-Replay-Nonce: ZNNrQVmE9Snxj-pkgkQW9hu3XfZkdQLAPYaGY0maSD3XtMazz1s
-X-Frame-Options: DENY
-Strict-Transport-Security: max-age=604800
-
-
-2026-09-30 08:37:32,085:DEBUG:acme.client:Storing nonce: ZNNrQVmE9Snxj-pkgkQW9hu3XfZkdQLAPYaGY0maSD3XtMazz1s
-2026-09-30 08:37:32,085:DEBUG:acme.client:JWS payload:
-b'{\n  "identifiers": [\n    {\n      "type": "dns",\n      "value": "express.crafttech.ru"\n    }\n  ]\n}'
-2026-09-30 08:37:32,090:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/new-order:
-{
-  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMzA3OTg1NzQ5NiIsICJub25jZSI6ICJaTk5yUVZtRTlTbnhqLXBrZ2tRVzlodTNYZlprZFFMQVBZYUdZMG1hU0QzWHRNYXp6MXMiLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL25ldy1vcmRlciJ9",
-  "signature": "BnAX_JpBIg4rWj_w8I6eH7PltB2cS8OZb9WCLDPpwsEBm7bUfzT_Bm6B3gVGIf_QHScKwUm0d6VSofr3g5xtkrTAzCS4BATKle6PwGp-aPUpYCh60Ns-yZhqAu_qb3lwzdUZA24QOyMsZhpPFzDuKu6rvF4e3Ulq13Ngvdt31N65BPuB-0fmHKj3Kfvkh9hQd3ENY88X3SDpJ8keBuhX0u7khGbBdbn-DFt0PLftHYmUt6YkmOg8TQLBw_AB8m9ddUrdUs0v6Or4nVmBW64ji-Y0yd4Ap9uML8XPXKjbkMIhcNYGGoxB7rCmjYyZHcc5TzqLoPHZbgoJLmDtntCDmg",
-  "payload": "ewogICJpZGVudGlmaWVycyI6IFsKICAgIHsKICAgICAgInR5cGUiOiAiZG5zIiwKICAgICAgInZhbHVlIjogImV4cHJlc3MuY3JhZnR0ZWNoLnJ1IgogICAgfQogIF0KfQ"
-}
-2026-09-30 08:37:32,319:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/new-order HTTP/1.1" 201 354
-2026-09-30 08:37:32,320:DEBUG:acme.client:Received response:
-HTTP 201
-Server: nginx
-Date: Wed, 30 Sep 2026 08:37:32 GMT
-Content-Type: application/json
-Content-Length: 354
-Connection: keep-alive
-Boulder-Requester: 3079857496
-Cache-Control: public, max-age=0, no-cache
-Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
-Location: https://acme-v02.api.letsencrypt.org/acme/order/3079857496/563574394486
-Replay-Nonce: ZNNrQVmECzHjzqfzSBruKVXdhk4O6xSpIwcE1lKA4NLc8BSAn_s
-X-Frame-Options: DENY
-Strict-Transport-Security: max-age=604800
-
-{
-  "status": "pending",
-  "expires": "2026-10-07T08:37:32Z",
-  "identifiers": [
-    {
-      "type": "dns",
-      "value": "express.crafttech.ru"
-    }
-  ],
-  "authorizations": [
-    "https://acme-v02.api.letsencrypt.org/acme/authz/3079857496/790238871066"
-  ],
-  "finalize": "https://acme-v02.api.letsencrypt.org/acme/finalize/3079857496/563574394486"
-}
-2026-09-30 08:37:32,320:DEBUG:acme.client:Storing nonce: ZNNrQVmECzHjzqfzSBruKVXdhk4O6xSpIwcE1lKA4NLc8BSAn_s
-2026-09-30 08:37:32,321:DEBUG:acme.client:JWS payload:
-b''
-2026-09-30 08:37:32,323:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/authz/3079857496/790238871066:
-{
-  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMzA3OTg1NzQ5NiIsICJub25jZSI6ICJaTk5yUVZtRUN6SGp6cWZ6U0JydUtWWGRoazRPNnhTcEl3Y0UxbEtBNE5MYzhCU0FuX3MiLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2F1dGh6LzMwNzk4NTc0OTYvNzkwMjM4ODcxMDY2In0",
-  "signature": "fibvNPtd5Z6XuYAJb8IoaqDZ0PcjmYQujXpC2-mVoE7eo8kfsHw1bj9z1OaztzUaV0H9RGk0o3a5zCe-ixrJ6IDq2Jowm2sCJT1Pyy-Xi5NiJDka4_LlC6CC4zM0Se6jPEoVgK1OsXabCqVEsFqyP5DG_k4fG6MnayS2vAT9v8mKhFdR-LwUPYN9ANmEmiPrUxuJ1Q1VE0qdb7o6Z86fJLa7w4DpN7NiyR7SqaMjGRlaLEkNMbYfuLuclGnhOhjYbNETG8R-fkmf_fU9GAA6CogCbQdJLDGxyeS4ILi9JFRshMwa9esogdA71bcVYErD6C1EYYFx-gGooYQ5zGyhKg",
-  "payload": ""
-}
-2026-09-30 08:37:32,520:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/authz/3079857496/790238871066 HTTP/1.1" 200 828
-2026-09-30 08:37:32,522:DEBUG:acme.client:Received response:
-HTTP 200
-Server: nginx
-Date: Wed, 30 Sep 2026 08:37:32 GMT
-Content-Type: application/json
-Content-Length: 828
-Connection: keep-alive
-Boulder-Requester: 3079857496
-Cache-Control: public, max-age=0, no-cache
-Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
-Replay-Nonce: ZNNrQVmEfW_EezLYe_-bOCLhTrz484LLr7_jOVHqRlLwR86V7_U
-X-Frame-Options: DENY
-Strict-Transport-Security: max-age=604800
-
-{
-  "identifier": {
-    "type": "dns",
-    "value": "express.crafttech.ru"
-  },
-  "status": "pending",
-  "expires": "2026-10-07T08:37:32Z",
-  "challenges": [
-    {
-      "type": "tls-alpn-01",
-      "url": "https://acme-v02.api.letsencrypt.org/acme/chall/3079857496/790238871066/RHMbLA",
-      "status": "pending",
-      "token": "n5xNpRe5EbQJ7r7pTT8n6vKBxrMB30xyKBWUZON3WAQ"
-    },
-    {
-      "type": "http-01",
-      "url": "https://acme-v02.api.letsencrypt.org/acme/chall/3079857496/790238871066/l3XAgQ",
-      "status": "pending",
-      "token": "n5xNpRe5EbQJ7r7pTT8n6vKBxrMB30xyKBWUZON3WAQ"
-    },
-    {
-      "type": "dns-01",
-      "url": "https://acme-v02.api.letsencrypt.org/acme/chall/3079857496/790238871066/KX40cA",
-      "status": "pending",
-      "token": "n5xNpRe5EbQJ7r7pTT8n6vKBxrMB30xyKBWUZON3WAQ"
-    }
-  ]
-}
-2026-09-30 08:37:32,522:DEBUG:acme.client:Storing nonce: ZNNrQVmEfW_EezLYe_-bOCLhTrz484LLr7_jOVHqRlLwR86V7_U
-2026-09-30 08:37:32,522:DEBUG:acme.challenges:tls-alpn-01 was not recognized, full message: {'type': 'tls-alpn-01', 'url': 'https://acme-v02.api.letsencrypt.org/acme/chall/3079857496/790238871066/RHMbLA', 'status': 'pending', 'token': 'n5xNpRe5EbQJ7r7pTT8n6vKBxrMB30xyKBWUZON3WAQ'}
-2026-09-30 08:37:32,523:INFO:certbot._internal.auth_handler:Performing the following challenges:
-2026-09-30 08:37:32,523:INFO:certbot._internal.auth_handler:http-01 challenge for Identifier(typ=IdentifierType(dns), value='express.crafttech.ru')
-2026-09-30 08:37:32,524:DEBUG:acme.standalone:Successfully bound to :80 using IPv6
-2026-09-30 08:37:32,525:DEBUG:acme.standalone:Certbot wasn't able to bind to :80 using IPv4, this is often expected due to the dual stack nature of IPv6 socket implementations.
-2026-09-30 08:37:32,529:DEBUG:acme.client:JWS payload:
-b'{}'
-2026-09-30 08:37:32,532:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/chall/3079857496/790238871066/l3XAgQ:
-{
-  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMzA3OTg1NzQ5NiIsICJub25jZSI6ICJaTk5yUVZtRWZXX0VlekxZZV8tYk9DTGhUcno0ODRMTHI3X2pPVkhxUmxMd1I4NlY3X1UiLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2NoYWxsLzMwNzk4NTc0OTYvNzkwMjM4ODcxMDY2L2wzWEFnUSJ9",
-  "signature": "D6BdGH-fQ6zwoYUdrR8OfusIIqK06YqcAzwZrkpSYF_0--_iIE-uamgldylVgP6jjW-iJDhg4VM6NEyImnwV7-k7YIKwdbwSA7VMpt3uYtPb9cbtQ1M1i8VnHfRvfgVpyfu57QUzd-z9Q-ghOgNbaKksaxQLkITG-5-_0HQ7jP5_6SS8UXgwzk5TMbBNsL2WvBxuTnZHRdJKsEFgyN5TIT_Bw8TcJ1mjpj9ehNwTRboaAFMyd5NZwO6rGLzq0TQWd2RW6LEVyOic_nAy5hi-BzFvoQyH89WzGFZGwaAbXgWezW22cvsmSxKZ7pdf0JyknI-iNaMNldaUNS7AxspNtA",
-  "payload": "e30"
-}
-2026-09-30 08:37:32,737:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/chall/3079857496/790238871066/l3XAgQ HTTP/1.1" 200 195
-2026-09-30 08:37:32,738:DEBUG:acme.client:Received response:
-HTTP 200
-Server: nginx
-Date: Wed, 30 Sep 2026 08:37:32 GMT
-Content-Type: application/json
-Content-Length: 195
-Connection: keep-alive
-Boulder-Requester: 3079857496
-Cache-Control: public, max-age=0, no-cache
-Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index", <https://acme-v02.api.letsencrypt.org/acme/authz/3079857496/790238871066>;rel="up"
-Location: https://acme-v02.api.letsencrypt.org/acme/chall/3079857496/790238871066/l3XAgQ
-Replay-Nonce: ZNNrQVmEhCrP_ROh5OBeaE9lwkfDe0vitnEGj090fBGwI6Hcdek
-X-Frame-Options: DENY
-Strict-Transport-Security: max-age=604800
-
-{
-  "type": "http-01",
-  "url": "https://acme-v02.api.letsencrypt.org/acme/chall/3079857496/790238871066/l3XAgQ",
-  "status": "pending",
-  "token": "n5xNpRe5EbQJ7r7pTT8n6vKBxrMB30xyKBWUZON3WAQ"
-}
-2026-09-30 08:37:32,738:DEBUG:acme.client:Storing nonce: ZNNrQVmEhCrP_ROh5OBeaE9lwkfDe0vitnEGj090fBGwI6Hcdek
-2026-09-30 08:37:32,739:INFO:certbot._internal.auth_handler:Waiting for verification...
-2026-09-30 08:37:33,740:DEBUG:acme.client:JWS payload:
-b''
-2026-09-30 08:37:33,742:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/authz/3079857496/790238871066:
-{
-  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMzA3OTg1NzQ5NiIsICJub25jZSI6ICJaTk5yUVZtRWhDclBfUk9oNU9CZWFFOWx3a2ZEZTB2aXRuRUdqMDkwZkJHd0k2SGNkZWsiLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2F1dGh6LzMwNzk4NTc0OTYvNzkwMjM4ODcxMDY2In0",
-  "signature": "gX5zj7VzbiepQXmI7G9XdanqN-j0Jr0fTxMtxKg00fSQqaRSCTwdZWVuSnHmOx3_Xd3LSq-lqd1KbiXqg51rywFTnSNNWaviSGvnhLohYNbGdEDavfGcz0sKBZp6-RCbrn9UKCpNrBxjcRhDQebV3rDAD_6erc-cMDyFcZr4xSJWW98pUasXBG_JD00gBViDVXRHmF7Wk7AFdtPuFszOdQ2a2pB05uSIcoaE_yeJFM72DYIBdHWrSrtTgqwboL0aW9wxDyxc_ItG_YTtnZPNK0ddhTeYvCHUEis-ImduF2lbx_SoOtplWKjqdYTixbbyyogZPZgxzu6TQJpFE8y3CQ",
-  "payload": ""
-}
-2026-09-30 08:37:33,947:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/authz/3079857496/790238871066 HTTP/1.1" 200 1067
-2026-09-30 08:37:33,948:DEBUG:acme.client:Received response:
-HTTP 200
-Server: nginx
-Date: Wed, 30 Sep 2026 08:37:33 GMT
-Content-Type: application/json
-Content-Length: 1067
-Connection: keep-alive
-Boulder-Requester: 3079857496
-Cache-Control: public, max-age=0, no-cache
-Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
-Replay-Nonce: ZNNrQVmECt7iLgMhFbBgQh_VC57a9zjEuJiNW2VctJ0yAO6ReOc
-X-Frame-Options: DENY
-Strict-Transport-Security: max-age=604800
-
-{
-  "identifier": {
-    "type": "dns",
-    "value": "express.crafttech.ru"
-  },
-  "status": "invalid",
-  "expires": "2026-10-07T08:37:32Z",
-  "challenges": [
-    {
-      "type": "http-01",
-      "url": "https://acme-v02.api.letsencrypt.org/acme/chall/3079857496/790238871066/l3XAgQ",
-      "status": "invalid",
-      "validated": "2026-09-30T08:37:32Z",
-      "error": {
-        "type": "urn:ietf:params:acme:error:connection",
-        "detail": "62.152.34.181: Fetching http://express.crafttech.ru/.well-known/acme-challenge/n5xNpRe5EbQJ7r7pTT8n6vKBxrMB30xyKBWUZON3WAQ: Error getting validation data",
-        "status": 400
-      },
-      "token": "n5xNpRe5EbQJ7r7pTT8n6vKBxrMB30xyKBWUZON3WAQ",
-      "validationRecord": [
-        {
-          "url": "http://express.crafttech.ru/.well-known/acme-challenge/n5xNpRe5EbQJ7r7pTT8n6vKBxrMB30xyKBWUZON3WAQ",
-          "hostname": "express.crafttech.ru",
-          "port": "80",
-          "addressesResolved": [
-            "62.152.34.181"
-          ],
-          "addressUsed": "62.152.34.181"
-        }
-      ]
-    }
-  ]
-}
-2026-09-30 08:37:33,949:DEBUG:acme.client:Storing nonce: ZNNrQVmECt7iLgMhFbBgQh_VC57a9zjEuJiNW2VctJ0yAO6ReOc
-2026-09-30 08:37:33,950:INFO:certbot._internal.auth_handler:Challenge failed for domain express.crafttech.ru
-2026-09-30 08:37:33,950:INFO:certbot._internal.auth_handler:http-01 challenge for Identifier(typ=IdentifierType(dns), value='express.crafttech.ru')
-2026-09-30 08:37:33,950:DEBUG:certbot._internal.display.obj:Notifying user: 
-Certbot failed to authenticate some domains (authenticator: standalone). The Certificate Authority reported these problems:
-  Identifier: express.crafttech.ru
-  Type:   connection
-  Detail: 62.152.34.181: Fetching http://express.crafttech.ru/.well-known/acme-challenge/n5xNpRe5EbQJ7r7pTT8n6vKBxrMB30xyKBWUZON3WAQ: Error getting validation data
-
-Hint: The Certificate Authority failed to download the challenge files from the temporary standalone webserver started by Certbot on port 80. Ensure that the listed domains point to this machine and that it can accept inbound connections from the internet.
-
-2026-09-30 08:37:33,954:DEBUG:certbot._internal.error_handler:Encountered exception:
-Traceback (most recent call last):
-  File "/opt/certbot/src/certbot/src/certbot/_internal/auth_handler.py", line 104, in handle_authorizations
-    self._poll_authorizations(authzrs, max_retries, max_time_mins, best_effort)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/certbot/src/certbot/src/certbot/_internal/auth_handler.py", line 208, in _poll_authorizations
-    raise errors.AuthorizationError('Some challenges have failed.')
-certbot.errors.AuthorizationError: Some challenges have failed.
-
-2026-09-30 08:37:33,954:DEBUG:certbot._internal.error_handler:Calling registered functions
-2026-09-30 08:37:33,954:INFO:certbot._internal.auth_handler:Cleaning up challenges
-2026-09-30 08:37:33,954:DEBUG:certbot._internal.plugins.standalone:Stopping server at :::80...
-2026-09-30 08:37:34,028:DEBUG:certbot._internal.log:Exiting abnormally:
-Traceback (most recent call last):
-  File "/usr/local/bin/certbot", line 10, in <module>
-    sys.exit(main())
-             ~~~~^^
-  File "/opt/certbot/src/certbot/src/certbot/main.py", line 18, in main
-    return internal_main.main(cli_args)
-           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
-  File "/opt/certbot/src/certbot/src/certbot/_internal/main.py", line 1886, in main
-    return config.func(config, plugins)
-           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "/opt/certbot/src/certbot/src/certbot/_internal/main.py", line 1598, in certonly
-    lineage = _get_and_save_cert(le_client, config, sans, certname, lineage)
-  File "/opt/certbot/src/certbot/src/certbot/_internal/main.py", line 143, in _get_and_save_cert
-    lineage = le_client.obtain_and_enroll_certificate(sans, certname)
-  File "/opt/certbot/src/certbot/src/certbot/_internal/client.py", line 533, in obtain_and_enroll_certificate
-    cert, chain, key, _ = self.obtain_certificate(sans)
-                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "/opt/certbot/src/certbot/src/certbot/_internal/client.py", line 434, in obtain_certificate
-    orderr = self._get_order_and_authorizations(csr.data, self.config.allow_subset_of_names)
-  File "/opt/certbot/src/certbot/src/certbot/_internal/client.py", line 512, in _get_order_and_authorizations
-    authzr = self.auth_handler.handle_authorizations(orderr, self.config, best_effort)
-  File "/opt/certbot/src/certbot/src/certbot/_internal/auth_handler.py", line 104, in handle_authorizations
-    self._poll_authorizations(authzrs, max_retries, max_time_mins, best_effort)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/certbot/src/certbot/src/certbot/_internal/auth_handler.py", line 208, in _poll_authorizations
-    raise errors.AuthorizationError('Some challenges have failed.')
-certbot.errors.AuthorizationError: Some challenges have failed.
-2026-09-30 08:37:34,031:ERROR:certbot._internal.log:Some challenges have failed.
+2026-09-30 14:48:16,991:DEBUG:certbot._internal.renewal:Skipped ACME Renewal Info check because ari_retry_after 2026-09-30T19:30:46 is in the future
+2026-09-30 14:48:16,992:INFO:certbot._internal.ocsp:Cannot extract OCSP URI from /etc/letsencrypt/archive/express.crafttech.ru/cert1.pem
+2026-09-30 14:48:16,992:DEBUG:certbot._internal.display.obj:Notifying user: Certificate not yet due for renewal
+2026-09-30 14:48:16,992:INFO:certbot._internal.main:Keeping the existing certificate
+2026-09-30 14:48:16,993:DEBUG:certbot._internal.display.obj:Notifying user: Certificate not yet due for renewal; no action taken.

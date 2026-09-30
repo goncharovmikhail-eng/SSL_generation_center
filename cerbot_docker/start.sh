@@ -21,7 +21,7 @@ fi
 
 echo "Получаем сертификат..."
 
-if ! docker compose run --rm --service-ports certbot certonly \
+if ! docker compose -f /root/SSL_generation_center/cerbot_docker/docker-compose.yml run --rm --service-ports certbot certonly \
     --standalone \
     --preferred-challenges http \
     -d "$name_domain" \
@@ -33,7 +33,7 @@ if ! docker compose run --rm --service-ports certbot certonly \
     exit 1
 fi
 
-docker compose down
+docker compose -f /root/SSL_generation_center/cerbot_docker/docker-compose.yml  down
 
 CERT_PATH="./letsencrypt/live/$name_domain"
 
@@ -41,8 +41,8 @@ echo "Сертификат успешно получен!"
 echo "Расположение: $CERT_PATH"
 
 # Меняем владельца сертификатов на текущего пользователя
-echo "Меняем владельца сертификатов на пользователя $USER..."
-sudo chown -R $USER:$USER letsencrypt
+#echo "Меняем владельца сертификатов на пользователя $USER..."
+#sudo chown -R $USER:$USER letsencrypt
 
 echo "Готово"
 

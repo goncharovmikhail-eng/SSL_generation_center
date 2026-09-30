@@ -1,0 +1,11 @@
+#/etc/systemd/system/ssl_manager.service
+
+[Unit]
+Description=SSL certificate generation and replacement
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/root/SSL_generation_center/auto_gen_replace_sevice
+ExecStart=/usr/bin/make all

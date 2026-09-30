@@ -1,0 +1,11 @@
+#/etc/systemd/system/ssl_manager.timer
+[Unit]
+Description=Run SSL manager every 3 months
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=1months
+Unit=ssl_manager.service
+
+[Install]
+WantedBy=timers.target
