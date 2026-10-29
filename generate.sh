@@ -1,62 +1,96 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -euo pipefail
+umask 077
 
-DOMAIN=""
 OUTPUT_DIR="${OUTPUT_DIR:-/certs}"
-MKCERT_ROOT="/root/.local/share/mkcert"
-IPS="127.0.0.1 localhost"
+export CAROOT="/root/.local/share/mkcert"
 
-# Парсинг аргументов
-while [ $# -gt 0 ]; do
+DOMAINS=()
+IPS=("127.0.0.1" "localhost")
+ADD_WILDCARD=true
+
+while [ "$#" -gt 0 ]; do
   case "$1" in
-    --name)
-      DOMAIN="$2"
+    --name|--ip)
+      if [ "$#" -lt 2 ] || [[ "$2" == --* ]] || [ -z "$2" ]; then
+        echo "Ошибка: для $1 требуется значение." >&2
+        exit 1
+      fi
+
+      case "$1" in
+        --name) DOMAINS+=("$2") ;;
+        --ip) IPS+=("$2") ;;
+      esac
       shift 2
       ;;
-    --ip)
-      IPS="$IPS $2"
-      shift 2
+    --no-wildcard)
+      ADD_WILDCARD=false
+      shift
       ;;
     --help)
-      echo "Usage: docker run ... --name domain.name [--ip ip-address]"
+      echo "Usage: --name domain [--name domain ...] [--ip ip ...] [--no-wildcard]"
       exit 0
       ;;
     *)
-      echo "❌ Unknown argument: $1"
+      echo "Ошибка: неизвестный аргумент $1" >&2
       exit 1
       ;;
   esac
 done
 
-if [ -z "$DOMAIN" ]; then
-  echo "❌ Error: Domain not specified. Use --name."
+if [ "${#DOMAINS[@]}" -eq 0 ]; then
+  echo "Ошибка: укажи хотя бы один --name." >&2
   exit 1
 fi
 
-echo "🔧 Generating certificate for domain: $DOMAIN"
-echo "📁 Output directory: $OUTPUT_DIR"
-echo "🌐 IPs: $IPS"
+CERT_NAMES=()
+
+for domain in "${DOMAINS[@]}"; do
+  if [[ "$domain" == */* ]]; then
+    echo "Ошибка: --name должен содержать DNS-имя без URL и пути." >&2
+    exit 1
+  fi
+
+  CERT_NAMES+=("$domain")
+
+  if [ "$ADD_WILDCARD" = true ] && [[ "$domain" != \*.* ]]; then
+    CERT_NAMES+=("*.$domain")
+  fi
+done
+
+# Для явно переданного wildcard используем безопасное имя файла.
+FILE_NAME="${DOMAINS[0]//\*/wildcard}"
+
+mkdir -p "$OUTPUT_DIR" "$CAROOT"
+
+echo "Имена в сертификате: ${CERT_NAMES[*]} ${IPS[*]}"
+echo "Каталог результата: $OUTPUT_DIR"
 
 mkcert -install
 
-mkcert -cert-file "$OUTPUT_DIR/$DOMAIN.pem" \
-       -key-file "$OUTPUT_DIR/$DOMAIN.key" \
-       "$DOMAIN" "*.$DOMAIN" $IPS
+mkcert \
+  -cert-file "$OUTPUT_DIR/$FILE_NAME.pem" \
+  -key-file "$OUTPUT_DIR/$FILE_NAME.key" \
+  "${CERT_NAMES[@]}" \
+  "${IPS[@]}"
 
-echo "DEBUG: Listing cert files:"
-ls -l "$OUTPUT_DIR"
+# Сертификат вместе с корневым CA, без приватного ключа.
+cat "$OUTPUT_DIR/$FILE_NAME.pem" "$CAROOT/rootCA.pem" \
+  > "$OUTPUT_DIR/$FILE_NAME.crt"
 
-echo "DEBUG: Contents of cert and key files:"
-head -10 "$OUTPUT_DIR/$DOMAIN.pem"
-head -10 "$OUTPUT_DIR/$DOMAIN.key"
+if [ ! -e "$OUTPUT_DIR/rootCA.crt" ]; then
+  cp "$CAROOT/rootCA.pem" "$OUTPUT_DIR/rootCA.crt"
+fi
 
-cat "$OUTPUT_DIR/$DOMAIN.key" "$OUTPUT_DIR/$DOMAIN.pem" > "$OUTPUT_DIR/$DOMAIN-combined.pem"
-mv "$OUTPUT_DIR/$DOMAIN-combined.pem" "$OUTPUT_DIR/$DOMAIN.pem"
+chmod 777 \
+  "$OUTPUT_DIR/$FILE_NAME.pem" \
+  "$OUTPUT_DIR/$FILE_NAME.key" \
+  "$OUTPUT_DIR/$FILE_NAME.crt" \
+  "$OUTPUT_DIR/rootCA.crt"
 
-cat "$OUTPUT_DIR/$DOMAIN.pem" "$MKCERT_ROOT/rootCA.pem" > "$OUTPUT_DIR/$DOMAIN.crt"
-cp "$MKCERT_ROOT/rootCA.pem" "$OUTPUT_DIR/rootCA.crt"
-
-chmod 777 "$OUTPUT_DIR/$DOMAIN.pem" \
-          "$OUTPUT_DIR/$DOMAIN.key" \
-          "$OUTPUT_DIR/$DOMAIN.crt" \
-          "$OUTPUT_DIR/rootCA.crt"
+echo "Готово:"
+printf '  %s\n' \
+  "$OUTPUT_DIR/$FILE_NAME.pem" \
+  "$OUTPUT_DIR/$FILE_NAME.key" \
+  "$OUTPUT_DIR/$FILE_NAME.crt" \
+  "$OUTPUT_DIR/rootCA.crt"
